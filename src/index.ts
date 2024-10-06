@@ -220,7 +220,7 @@ function Miniget(url: string | URL, options: Miniget.Options = {}): Miniget.Stre
         stream.end();
       }
     };
-
+    delete parsed?.headers?.host;
     activeRequest = httpLib.request(parsed, (res: IncomingMessage) => {
       // Needed for node v10, v12.
       // istanbul ignore next
